@@ -3,6 +3,80 @@
 The [README](../README.md) is kept short. This page has everything else: how the data looks, how the
 dataset was built, which models and techniques were tested, how they were compared, and the limits.
 
+## How the systems were compared and selected
+
+Comparing 28 systems is only useful if the comparison is fair and the winner is not cherry-picked. Three
+rules made sure of that:
+
+1. **Same conditions for everyone.** Same test questions, same retriever, same prompts, seed 42, greedy
+   decoding. Every fine-tuning run used the same data, effective batch size (32) and number of epochs (2);
+   only the learning rate differs, as each method needs.
+2. **Validation decides, test reports.** The retriever (BM25 recall@3 0.86 vs dense 0.57), the model to
+   fine-tune, the gate threshold and the final system were all chosen on the validation set. The test set
+   was used only for the numbers below. The test questions are *unseen*: the facts behind them were never in
+   training, so a high score means the system really reads the article. It is not just memorising.
+3. **The selection rule was written before the results.** A system was eligible only if it passed all four checks:
+
+   | Check (validation set) | Why it matters for a support tool |
+   |---|---|
+   | Refuses ≥ 80 % of off-topic questions | a wrong confident answer is worse than "not covered" |
+   | Key-fact recall ≥ retrieval-only baseline (0.70) | otherwise just showing the excerpt is better |
+   | Median answer time ≤ 10 s | usable in a chat |
+   | Peak GPU memory ≤ 6 GB | runs on the laptop |
+
+   Eligible systems were then ranked by **0.5 × key-fact recall + 0.25 × ROUGE-L + 0.25 × correct refusals**.
+
+**Outcome:** only 3 of 28 systems were eligible. Every closed-book and every base-model system failed.
+
+| Eligible system | Validation score | Median latency | Peak VRAM |
+|---|---|---|---|
+| **Qwen3-0.6B + RAG-SFT + gate (selected)** | **0.842** | 6.6 s | 1.5 GB |
+| SmolLM2-360M + RAG-SFT + gate | 0.799 | 9.8 s | 0.8 GB |
+| Retrieval only + gate | 0.765 | ≈ 0.01 s | 0 GB |
+
+The full rule and every candidate are in [results/final_selection.json](../results/final_selection.json).
+
+### Why these results matter
+
+- **Fine-tuning alone does not teach a small model new facts.** Five techniques (LoRA, QLoRA, IA3, prompt
+  tuning, full fine-tuning) plus domain pretraining all stayed at or below 0.03 key-fact recall without retrieval.
+  Full fine-tuning cost 5× the time and a 1.1 GB checkpoint for no gain.
+- **RAG alone is not enough either.** Given the right excerpts, base models still got only 0.09–0.14, which is worse than
+  just showing the excerpt (0.71).
+- **The combination works:** fine-tuning on *question + retrieved excerpts* lifted the same 0.6 B model to 0.80, above
+  the excerpt itself. The adapter is only 49 MB, trained in about an hour on a laptop.
+- **Refusing is a separate problem.** The fine-tuned model alone refused only 53 % of off-topic questions. A cheap
+  similarity gate raised that to 94 % without retraining.
+
+## Full results of the selected system
+
+Measured on a fixed test set (seed 42, greedy decoding). Questions are *unseen*: the facts behind them were never
+in the training data.
+
+| Metric | Qwen3-0.6B + RAG-SFT + gate |
+|---|---|
+| Key-fact recall (unseen questions) | **0.80** |
+| ROUGE-L (unseen questions) | **0.86** |
+| Semantic similarity to the reference | 0.95 |
+| Off-topic questions correctly refused | **0.94** |
+| In-domain questions wrongly refused | 0.03 |
+| Median answer time / peak GPU memory | 6.6 s / 1.5 GB |
+| Training time / adapter size | 66 min / 49 MB |
+
+## Top 5 systems
+
+| Rank | System | Key-fact recall | ROUGE-L | Off-topic refused | Wrong refusals | Median latency |
+|---|---|---|---|---|---|---|
+| 1 | **Qwen3-0.6B + RAG-SFT (LoRA) + gate** | **0.800** | **0.856** | **0.94** | 0.03 | 6.6 s |
+| 2 | Qwen3-0.6B + RAG-SFT (LoRA) | 0.800 | 0.856 | 0.53 | 0.03 | 3.1 s |
+| 3 | SmolLM2-360M + RAG-SFT (LoRA) + gate | 0.712 | 0.786 | 0.94 | 0.02 | 9.8 s |
+| 4 | Retrieval only + gate (no LLM, top excerpt returned) | 0.710 | 0.670 | 0.94 | 0.00 | ≈ 0.02 s |
+| 5 | TinyLlama-1.1B base + RAG (no fine-tuning) | 0.135 | 0.145 | 0.26 | 0.54 | 9.1 s |
+
+The winner was picked by a selection rule written **before** the results (in short: refuse ≥ 80 % of off-topic
+questions, beat retrieval-only, answer in ≤ 10 s on 6 GB; then rank by score).
+**All 28 systems with every metric:** [results/comparison.md](../results/comparison.md).
+
 ## The data (type only, the content is not published)
 
 The source is one SAP HANA Knowledge Base Article (KBA) about SQL performance, available to SAP customers
