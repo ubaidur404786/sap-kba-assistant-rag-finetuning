@@ -1,0 +1,9 @@
+{
+ "metric": "recall@3 on val (answerable, n=330)",
+ "recall": {
+  "bm25": 0.8606,
+  "dense": 0.5727,
+  "hybrid": 0.6939
+ },
+ "selected": "bm25"
+}

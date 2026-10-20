@@ -1,0 +1,82 @@
+[
+ {
+  "input_tokens": 533,
+  "output_tokens": 72,
+  "retrieval_s": 0.028650200001720805,
+  "ttft_s": 0.7275048000010429,
+  "total_s": 32.6126746000009,
+  "decode_tok_per_s": 2.2267405331490604
+ },
+ {
+  "input_tokens": 392,
+  "output_tokens": 139,
+  "retrieval_s": 0.010491699998965487,
+  "ttft_s": 0.5100923999998486,
+  "total_s": 81.01447379999809,
+  "decode_tok_per_s": 1.714192415370861
+ },
+ {
+  "input_tokens": 395,
+  "output_tokens": 87,
+  "retrieval_s": 0.10037480000028154,
+  "ttft_s": 1.2468754999972589,
+  "total_s": 45.92162859999735,
+  "decode_tok_per_s": 1.9250246287315202
+ },
+ {
+  "input_tokens": 396,
+  "output_tokens": 150,
+  "retrieval_s": 0.06482580000010785,
+  "ttft_s": 0.680209999998624,
+  "total_s": 76.77813579999929,
+  "decode_tok_per_s": 1.9580034335180092
+ },
+ {
+  "input_tokens": 562,
+  "output_tokens": 46,
+  "retrieval_s": 0.059559199999057455,
+  "ttft_s": 0.9496656000010262,
+  "total_s": 21.79582070000106,
+  "decode_tok_per_s": 2.158671456876953
+ },
+ {
+  "input_tokens": 568,
+  "output_tokens": 150,
+  "retrieval_s": 0.06749600000330247,
+  "ttft_s": 0.5583608000015374,
+  "total_s": 75.03904810000313,
+  "decode_tok_per_s": 2.000518596181064
+ },
+ {
+  "input_tokens": 390,
+  "output_tokens": 82,
+  "retrieval_s": 0.06545939999705297,
+  "ttft_s": 0.5255730999997468,
+  "total_s": 31.49862529999882,
+  "decode_tok_per_s": 2.615176556606921
+ },
+ {
+  "input_tokens": 391,
+  "output_tokens": 58,
+  "retrieval_s": 0.0161813999984588,
+  "ttft_s": 0.37812149999808753,
+  "total_s": 26.814702899999247,
+  "decode_tok_per_s": 2.1561032849730526
+ },
+ {
+  "input_tokens": 391,
+  "output_tokens": 138,
+  "retrieval_s": 0.06078679999700398,
+  "ttft_s": 0.5386048999971536,
+  "total_s": 57.29831949999789,
+  "decode_tok_per_s": 2.413683736175767
+ },
+ {
+  "input_tokens": 391,
+  "output_tokens": 110,
+  "retrieval_s": 0.012662699999054894,
+  "ttft_s": 0.37201939999795286,
+  "total_s": 54.56740329999957,
+  "decode_tok_per_s": 2.011241403901131
+ }
+]

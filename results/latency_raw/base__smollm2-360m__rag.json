@@ -1,0 +1,82 @@
+[
+ {
+  "input_tokens": 533,
+  "output_tokens": 150,
+  "retrieval_s": 0.013393099998211255,
+  "ttft_s": 0.2694406999980856,
+  "total_s": 33.97303810000085,
+  "decode_tok_per_s": 4.420893064666972
+ },
+ {
+  "input_tokens": 392,
+  "output_tokens": 150,
+  "retrieval_s": 0.01081039999917266,
+  "ttft_s": 0.256981899998209,
+  "total_s": 34.789375699998345,
+  "decode_tok_per_s": 4.314789205259191
+ },
+ {
+  "input_tokens": 395,
+  "output_tokens": 34,
+  "retrieval_s": 0.011985000001004664,
+  "ttft_s": 0.30161650000081863,
+  "total_s": 8.483489599999302,
+  "decode_tok_per_s": 4.033306260886167
+ },
+ {
+  "input_tokens": 396,
+  "output_tokens": 21,
+  "retrieval_s": 0.009201500000926899,
+  "ttft_s": 0.3685016999988875,
+  "total_s": 5.347547499997745,
+  "decode_tok_per_s": 4.016833908216829
+ },
+ {
+  "input_tokens": 562,
+  "output_tokens": 32,
+  "retrieval_s": 0.011379200001101708,
+  "ttft_s": 0.39292850000128965,
+  "total_s": 7.612288600001193,
+  "decode_tok_per_s": 4.294009381801084
+ },
+ {
+  "input_tokens": 568,
+  "output_tokens": 85,
+  "retrieval_s": 0.01281580000068061,
+  "ttft_s": 0.38235290000011446,
+  "total_s": 20.468667000001005,
+  "decode_tok_per_s": 4.181951929149424
+ },
+ {
+  "input_tokens": 390,
+  "output_tokens": 35,
+  "retrieval_s": 0.0060508000024128705,
+  "ttft_s": 0.2924514000005729,
+  "total_s": 8.882085199998983,
+  "decode_tok_per_s": 3.958259547689483
+ },
+ {
+  "input_tokens": 391,
+  "output_tokens": 34,
+  "retrieval_s": 0.010547000001679407,
+  "ttft_s": 0.2523177000002761,
+  "total_s": 7.195398399999249,
+  "decode_tok_per_s": 4.7529333772549816
+ },
+ {
+  "input_tokens": 391,
+  "output_tokens": 35,
+  "retrieval_s": 0.0064978000009432435,
+  "ttft_s": 0.22864950000075623,
+  "total_s": 8.173152800001844,
+  "decode_tok_per_s": 4.279688574110774
+ },
+ {
+  "input_tokens": 391,
+  "output_tokens": 44,
+  "retrieval_s": 0.010632299999997485,
+  "ttft_s": 0.29569529999935185,
+  "total_s": 10.206640200001857,
+  "decode_tok_per_s": 4.338637782154266
+ }
+]

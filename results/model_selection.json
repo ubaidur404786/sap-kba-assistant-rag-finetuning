@@ -1,0 +1,47 @@
+{
+ "rule": "val_score = 0.5*key_fact_recall + 0.25*rouge_l + 0.25*correct_refusal (RAG, val set)",
+ "ranking": [
+  {
+   "short": "qwen3-0.6b",
+   "model": "Qwen/Qwen3-0.6B",
+   "params_m": 596,
+   "val_score": 0.3284
+  },
+  {
+   "short": "qwen2.5-0.5b",
+   "model": "Qwen/Qwen2.5-0.5B-Instruct",
+   "params_m": 494,
+   "val_score": 0.223
+  },
+  {
+   "short": "smollm2-360m",
+   "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+   "params_m": 362,
+   "val_score": 0.2048
+  },
+  {
+   "short": "tinyllama-1.1b",
+   "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+   "params_m": 1100,
+   "val_score": 0.1948
+  },
+  {
+   "short": "smollm2-135m",
+   "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+   "params_m": 135,
+   "val_score": 0.1018
+  }
+ ],
+ "main": {
+  "short": "qwen3-0.6b",
+  "model": "Qwen/Qwen3-0.6B",
+  "params_m": 596,
+  "val_score": 0.3284
+ },
+ "second": {
+  "short": "smollm2-360m",
+  "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+  "params_m": 362,
+  "val_score": 0.2048
+ }
+}

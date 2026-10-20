@@ -1,0 +1,82 @@
+[
+ {
+  "input_tokens": 487,
+  "output_tokens": 21,
+  "retrieval_s": 0.012977700000192272,
+  "ttft_s": 0.3778686000005109,
+  "total_s": 5.81577880000259,
+  "decode_tok_per_s": 3.6778834633923068
+ },
+ {
+  "input_tokens": 361,
+  "output_tokens": 31,
+  "retrieval_s": 0.00864690000162227,
+  "ttft_s": 0.30424779999884777,
+  "total_s": 8.313645500002167,
+  "decode_tok_per_s": 3.745599996862132
+ },
+ {
+  "input_tokens": 363,
+  "output_tokens": 13,
+  "retrieval_s": 0.008093600001302548,
+  "ttft_s": 0.28553649999958,
+  "total_s": 3.3935272000016994,
+  "decode_tok_per_s": 3.86101541423268
+ },
+ {
+  "input_tokens": 364,
+  "output_tokens": 28,
+  "retrieval_s": 0.008776099999522557,
+  "ttft_s": 0.2877372999973886,
+  "total_s": 6.124630799997249,
+  "decode_tok_per_s": 4.6257482683212645
+ },
+ {
+  "input_tokens": 518,
+  "output_tokens": 13,
+  "retrieval_s": 0.0073505000000295695,
+  "ttft_s": 0.3231630000009318,
+  "total_s": 3.2993153000024904,
+  "decode_tok_per_s": 4.032051719931711
+ },
+ {
+  "input_tokens": 508,
+  "output_tokens": 13,
+  "retrieval_s": 0.010084099998493912,
+  "ttft_s": 0.27628159999949276,
+  "total_s": 3.201968499997747,
+  "decode_tok_per_s": 4.1016008924287695
+ },
+ {
+  "input_tokens": 358,
+  "output_tokens": 13,
+  "retrieval_s": 0.008255900000222027,
+  "ttft_s": 0.25134609999804525,
+  "total_s": 3.1775640999985626,
+  "decode_tok_per_s": 4.100856463871755
+ },
+ {
+  "input_tokens": 359,
+  "output_tokens": 25,
+  "retrieval_s": 0.00774249999813037,
+  "ttft_s": 0.3138891999988118,
+  "total_s": 6.268417899998894,
+  "decode_tok_per_s": 4.030545692054464
+ },
+ {
+  "input_tokens": 359,
+  "output_tokens": 25,
+  "retrieval_s": 0.005245100001047831,
+  "ttft_s": 0.2687781000022369,
+  "total_s": 6.61730069999976,
+  "decode_tok_per_s": 3.7804071139337783
+ },
+ {
+  "input_tokens": 359,
+  "output_tokens": 22,
+  "retrieval_s": 0.011989499998890096,
+  "ttft_s": 0.32982279999851016,
+  "total_s": 6.32876099999703,
+  "decode_tok_per_s": 3.5006194929638017
+ }
+]

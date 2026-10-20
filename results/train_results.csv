@@ -1,0 +1,10 @@
+run,model,exp,task,method,quant_4bit,init_adapter,lr,epochs,effective_batch,max_length,train_examples,train_tokens_total,trainable_params,total_params,trainable_pct,train_time_s,train_tokens_per_s,train_samples_per_s,final_train_loss,eval_loss,peak_vram_gb,saved_size_mb,seed,date
+qwen3-0.6b/sft-lora,Qwen/Qwen3-0.6B,sft-lora,sft,lora,False,-,0.0002,2,32,512,1721,660124,10092544,606142464,1.665,1604.7,411.4,2.15,2.2705,2.3402,4.975,49.46,42,2026-10-19
+qwen3-0.6b/sft-ia3,Qwen/Qwen3-0.6B,sft-ia3,sft,ia3,False,-,0.003,2,32,512,1721,660124,143360,596193280,0.024,1314.7,502.1,2.62,3.002,2.8038,4.827,11.47,42,2026-10-20
+qwen3-0.6b/sft-prompt,Qwen/Qwen3-0.6B,sft-prompt,sft,prompt,False,-,0.03,2,32,512,1721,660124,20480,596070400,0.0034,1517.4,435.0,2.27,3.0832,2.8979,4.994,10.99,42,2026-10-20
+qwen3-0.6b/sft-full,Qwen/Qwen3-0.6B,sft-full,sft,full,False,-,2e-05,2,32,512,1721,660124,596049920,596049920,100.0,8286.1,79.7,0.41,2.4511,2.4778,8.54,1147.81,42,2026-10-20
+qwen3-0.6b/sft-qlora,Qwen/Qwen3-0.6B,sft-qlora,sft,lora,True,-,0.0002,2,32,512,1721,660124,10092544,385941504,2.615,1865.4,353.9,1.85,2.314,2.3762,4.855,30.21,42,2026-10-20
+smollm2-360m-instruct/ragsft-lora,HuggingFaceTB/SmolLM2-360M-Instruct,ragsft-lora,rag_sft,lora,False,-,0.0002,2,32,1536,1721,2635996,8683520,370504640,2.3437,2926.2,900.8,1.18,0.1498,0.09,3.934,36.55,42,2026-10-20
+qwen3-0.6b/ragsft-lora,Qwen/Qwen3-0.6B,ragsft-lora,rag_sft,lora,False,-,0.0002,2,32,1536,1721,2398430,10092544,606142464,1.665,3934.0,609.7,0.88,0.1351,0.081,4.141,49.46,42,2026-10-20
+qwen3-0.6b/dapt-lora,Qwen/Qwen3-0.6B,dapt-lora,dapt,lora,False,-,0.0002,2,32,512,567,176940,10092544,606142464,1.665,447.7,395.2,2.54,3.0511,2.8468,4.442,49.46,42,2026-10-20
+qwen3-0.6b/dapt-sft-lora,Qwen/Qwen3-0.6B,dapt-sft-lora,sft,lora,False,dapt-lora,0.0002,2,32,512,1721,660124,10092544,606142464,1.665,1502.5,439.4,2.29,2.001,2.3384,4.975,49.46,42,2026-10-20

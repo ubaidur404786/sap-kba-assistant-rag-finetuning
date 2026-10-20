@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 330" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+  <title>Model flow: from question to answer</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1b2733"/></marker>
+    <style>
+      .box{fill:#fff;stroke:#1b2733;stroke-width:1.5}
+      .hi{fill:#e3f1f5;stroke:#0a6e8a;stroke-width:2}
+      .no{fill:#f3e3cc;stroke:#a8661a;stroke-width:1.5}
+      .ok{fill:#e4f2e4;stroke:#2e7d32;stroke-width:1.5}
+      .t{fill:#1b2733;font-weight:600}
+      .s{fill:#5b6b7a;font-size:11.5px}
+      .ln{stroke:#1b2733;stroke-width:1.4;fill:none;marker-end:url(#a)}
+    </style>
+  </defs>
+  <rect width="1000" height="330" fill="#f8fafb"/>
+  <text x="20" y="30" font-size="16" class="t">Inside one answer: question → gate → retrieval → fine-tuned model → answer</text>
+
+  <rect x="20" y="70" width="140" height="80" rx="6" class="box"/>
+  <text x="32" y="96" class="t">1 · Question</text><text x="32" y="116" class="s">typed by the user</text><text x="32" y="132" class="s">in the React app</text>
+
+  <rect x="190" y="70" width="160" height="80" rx="6" class="box"/>
+  <text x="202" y="96" class="t">2 · Scope gate</text><text x="202" y="116" class="s">bge-small similarity to</text><text x="202" y="132" class="s">the closest KB chunk</text>
+
+  <rect x="380" y="70" width="160" height="80" rx="6" class="box"/>
+  <text x="392" y="96" class="t">3 · BM25 retrieval</text><text x="392" y="116" class="s">top-3 chunks from the</text><text x="392" y="132" class="s">knowledge base</text>
+
+  <rect x="570" y="70" width="180" height="80" rx="6" class="box"/>
+  <text x="582" y="96" class="t">4 · Prompt</text><text x="582" y="116" class="s">instruction + question</text><text x="582" y="132" class="s">+ 3 excerpts (chat format)</text>
+
+  <rect x="780" y="70" width="200" height="80" rx="6" class="hi"/>
+  <text x="792" y="96" class="t">5 · Qwen3-0.6B + LoRA</text><text x="792" y="116" class="s">fine-tuned to answer only</text><text x="792" y="132" class="s">from the excerpts (RAG-SFT)</text>
+
+  <path d="M160,110 H186" class="ln"/><path d="M350,110 H376" class="ln"/>
+  <path d="M540,110 H566" class="ln"/><path d="M750,110 H776" class="ln"/>
+
+  <rect x="780" y="200" width="200" height="80" rx="6" class="ok"/>
+  <text x="792" y="226" class="t">Answer + sources</text><text x="792" y="246" class="s">short, grounded answer with</text><text x="792" y="262" class="s">the 3 excerpts and timings</text>
+  <path d="M880,150 V196" class="ln"/>
+
+  <rect x="190" y="200" width="300" height="80" rx="6" class="no"/>
+  <text x="202" y="226" class="t">Refusal (off-topic)</text><text x="202" y="246" class="s">similarity below threshold 0.726 → "the knowledge</text><text x="202" y="262" class="s">base does not contain this"; the LLM is never called</text>
+  <path d="M270,150 V196" class="ln"/>
+  <text x="280" y="180" class="s">too far from every chunk</text>
+  <text x="356" y="64" class="s">in scope</text>
+</svg>

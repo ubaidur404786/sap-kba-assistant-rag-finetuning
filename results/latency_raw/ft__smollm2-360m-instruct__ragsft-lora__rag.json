@@ -1,0 +1,82 @@
+[
+ {
+  "input_tokens": 533,
+  "output_tokens": 126,
+  "retrieval_s": 0.0061887999981991015,
+  "ttft_s": 0.2238281999962055,
+  "total_s": 30.77992209999502,
+  "decode_tok_per_s": 4.090837016311331
+ },
+ {
+  "input_tokens": 392,
+  "output_tokens": 14,
+  "retrieval_s": 0.006927000002178829,
+  "ttft_s": 0.313803299999563,
+  "total_s": 4.32323290000204,
+  "decode_tok_per_s": 3.2423564688583055
+ },
+ {
+  "input_tokens": 395,
+  "output_tokens": 20,
+  "retrieval_s": 0.0044459999990067445,
+  "ttft_s": 0.35960809999960475,
+  "total_s": 5.758706100001291,
+  "decode_tok_per_s": 3.519106339613407
+ },
+ {
+  "input_tokens": 396,
+  "output_tokens": 20,
+  "retrieval_s": 0.005240099999355152,
+  "ttft_s": 0.39415680000092834,
+  "total_s": 5.710073900001589,
+  "decode_tok_per_s": 3.5741716137743453
+ },
+ {
+  "input_tokens": 562,
+  "output_tokens": 107,
+  "retrieval_s": 0.008073500001046341,
+  "ttft_s": 0.39533250000386033,
+  "total_s": 28.285927199998696,
+  "decode_tok_per_s": 3.8005643529723527
+ },
+ {
+  "input_tokens": 568,
+  "output_tokens": 20,
+  "retrieval_s": 0.006325499998638406,
+  "ttft_s": 0.42929219999496127,
+  "total_s": 5.395735199999763,
+  "decode_tok_per_s": 3.8256756394831535
+ },
+ {
+  "input_tokens": 390,
+  "output_tokens": 14,
+  "retrieval_s": 0.005518799996934831,
+  "ttft_s": 0.3899560999998357,
+  "total_s": 4.776947899998049,
+  "decode_tok_per_s": 2.963306199935294
+ },
+ {
+  "input_tokens": 391,
+  "output_tokens": 14,
+  "retrieval_s": 0.004713400005130097,
+  "ttft_s": 0.30940010000631446,
+  "total_s": 3.756713500006299,
+  "decode_tok_per_s": 3.771052553562452
+ },
+ {
+  "input_tokens": 391,
+  "output_tokens": 14,
+  "retrieval_s": 0.004334900004323572,
+  "ttft_s": 0.27132430000347085,
+  "total_s": 3.4818611000009696,
+  "decode_tok_per_s": 4.049167105018117
+ },
+ {
+  "input_tokens": 391,
+  "output_tokens": 14,
+  "retrieval_s": 0.0049872999952640384,
+  "ttft_s": 0.26817229999869596,
+  "total_s": 3.4564687999954913,
+  "decode_tok_per_s": 4.077412499123926
+ }
+]

@@ -1,0 +1,82 @@
+[
+ {
+  "input_tokens": 483,
+  "output_tokens": 23,
+  "retrieval_s": 0.016741000003094086,
+  "ttft_s": 0.28353100000094855,
+  "total_s": 4.242748300002859,
+  "decode_tok_per_s": 5.556653836602853
+ },
+ {
+  "input_tokens": 357,
+  "output_tokens": 106,
+  "retrieval_s": 0.008485499998641899,
+  "ttft_s": 0.18282819999876665,
+  "total_s": 17.995420999999624,
+  "decode_tok_per_s": 5.894706131720192
+ },
+ {
+  "input_tokens": 359,
+  "output_tokens": 58,
+  "retrieval_s": 0.009337600000435486,
+  "ttft_s": 0.21127090000300086,
+  "total_s": 10.037983900001564,
+  "decode_tok_per_s": 5.800515391057858
+ },
+ {
+  "input_tokens": 360,
+  "output_tokens": 27,
+  "retrieval_s": 0.007886999999755062,
+  "ttft_s": 0.16015259999767295,
+  "total_s": 4.523766899998009,
+  "decode_tok_per_s": 5.958363460308121
+ },
+ {
+  "input_tokens": 514,
+  "output_tokens": 6,
+  "retrieval_s": 0.009956599998986349,
+  "ttft_s": 0.2594328000013775,
+  "total_s": 1.0823414000005869,
+  "decode_tok_per_s": 6.076008927364234
+ },
+ {
+  "input_tokens": 504,
+  "output_tokens": 13,
+  "retrieval_s": 0.010506399998121196,
+  "ttft_s": 0.20850399999835645,
+  "total_s": 2.2436622999994142,
+  "decode_tok_per_s": 5.896347227630285
+ },
+ {
+  "input_tokens": 354,
+  "output_tokens": 22,
+  "retrieval_s": 0.009177200001431629,
+  "ttft_s": 0.20477750000281958,
+  "total_s": 3.796231500000431,
+  "decode_tok_per_s": 5.847213969610627
+ },
+ {
+  "input_tokens": 355,
+  "output_tokens": 22,
+  "retrieval_s": 0.007977599998412188,
+  "ttft_s": 0.2109664999989036,
+  "total_s": 3.9219664000011107,
+  "decode_tok_per_s": 5.658852213924207
+ },
+ {
+  "input_tokens": 355,
+  "output_tokens": 29,
+  "retrieval_s": 0.008697299999766983,
+  "ttft_s": 0.1964659000004758,
+  "total_s": 5.258449400000245,
+  "decode_tok_per_s": 5.53142853982066
+ },
+ {
+  "input_tokens": 355,
+  "output_tokens": 23,
+  "retrieval_s": 0.007800299998052651,
+  "ttft_s": 0.18973929999992833,
+  "total_s": 3.8549925000006624,
+  "decode_tok_per_s": 6.002313837416633
+ }
+]

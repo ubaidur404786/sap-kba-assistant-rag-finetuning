@@ -1,0 +1,82 @@
+[
+ {
+  "input_tokens": 581,
+  "output_tokens": 74,
+  "retrieval_s": 0.011825599998701364,
+  "ttft_s": 0.3258419000012509,
+  "total_s": 9.757019699998636,
+  "decode_tok_per_s": 7.740284569761821
+ },
+ {
+  "input_tokens": 434,
+  "output_tokens": 67,
+  "retrieval_s": 0.008762599998590304,
+  "ttft_s": 0.2764501999990898,
+  "total_s": 9.124478300000192,
+  "decode_tok_per_s": 7.459289149408531
+ },
+ {
+  "input_tokens": 439,
+  "output_tokens": 87,
+  "retrieval_s": 0.008302100002765656,
+  "ttft_s": 0.3011943000019528,
+  "total_s": 10.356797800002823,
+  "decode_tok_per_s": 8.552445410162857
+ },
+ {
+  "input_tokens": 440,
+  "output_tokens": 72,
+  "retrieval_s": 0.006749299998773495,
+  "ttft_s": 0.2673679999970773,
+  "total_s": 9.1670309000001,
+  "decode_tok_per_s": 7.9778302614109
+ },
+ {
+  "input_tokens": 618,
+  "output_tokens": 150,
+  "retrieval_s": 0.008115500000712927,
+  "ttft_s": 0.31732349999947473,
+  "total_s": 17.894340000002558,
+  "decode_tok_per_s": 8.476979014042222
+ },
+ {
+  "input_tokens": 612,
+  "output_tokens": 117,
+  "retrieval_s": 0.007690399997954955,
+  "ttft_s": 0.32528369999999995,
+  "total_s": 15.25807039999927,
+  "decode_tok_per_s": 7.768141494983363
+ },
+ {
+  "input_tokens": 433,
+  "output_tokens": 48,
+  "retrieval_s": 0.007974200001626741,
+  "ttft_s": 0.3007636000002094,
+  "total_s": 6.690788700001576,
+  "decode_tok_per_s": 7.355213675137199
+ },
+ {
+  "input_tokens": 434,
+  "output_tokens": 48,
+  "retrieval_s": 0.008942799999203999,
+  "ttft_s": 0.2564124999989872,
+  "total_s": 6.12389610000173,
+  "decode_tok_per_s": 8.010248209296748
+ },
+ {
+  "input_tokens": 434,
+  "output_tokens": 48,
+  "retrieval_s": 0.00876570000036736,
+  "ttft_s": 0.2979379999997036,
+  "total_s": 5.947215500000311,
+  "decode_tok_per_s": 8.319647954980958
+ },
+ {
+  "input_tokens": 434,
+  "output_tokens": 48,
+  "retrieval_s": 0.005871699999261182,
+  "ttft_s": 0.26284989999840036,
+  "total_s": 6.221958800000721,
+  "decode_tok_per_s": 7.8870852653794765
+ }
+]

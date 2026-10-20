@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+  <title>System architecture: offline training, saved model, local app</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1b2733"/></marker>
+    <style>
+      .box{fill:#fff;stroke:#1b2733;stroke-width:1.5}
+      .hi{fill:#e3f1f5;stroke:#0a6e8a;stroke-width:2}
+      .zone{fill:none;stroke:#9aa7b3;stroke-width:1;stroke-dasharray:5 4}
+      .t{fill:#1b2733;font-weight:600}
+      .s{fill:#5b6b7a;font-size:11.5px}
+      .z{fill:#5b6b7a;font-size:12px;font-weight:600}
+      .ln{stroke:#1b2733;stroke-width:1.4;fill:none;marker-end:url(#a)}
+    </style>
+  </defs>
+  <rect width="1000" height="360" fill="#f8fafb"/>
+  <text x="20" y="30" font-size="16" class="t">From data to app: train once offline, serve the saved adapter locally</text>
+
+  <rect x="15" y="50" width="590" height="290" rx="8" class="zone"/>
+  <text x="28" y="70" class="z">OFFLINE · training (RTX 3050 6 GB)</text>
+  <rect x="625" y="50" width="360" height="290" rx="8" class="zone"/>
+  <text x="638" y="70" class="z">ONLINE · local app</text>
+
+  <rect x="30" y="90" width="160" height="80" rx="6" class="box"/>
+  <text x="42" y="116" class="t">KBA (JSON + HTML)</text><text x="42" y="136" class="s">semi-structured FAQ,</text><text x="42" y="152" class="s">tables, code blocks</text>
+
+  <rect x="220" y="90" width="160" height="80" rx="6" class="box"/>
+  <text x="232" y="116" class="t">Parse + chunk</text><text x="232" y="136" class="s">sections → chunks,</text><text x="232" y="152" class="s">QA pairs, train/val/test</text>
+
+  <rect x="410" y="90" width="180" height="80" rx="6" class="box"/>
+  <text x="422" y="116" class="t">Benchmark 28 systems</text><text x="422" y="136" class="s">RAG, LoRA, QLoRA, IA3, full</text><text x="422" y="152" class="s">FT, DAPT · quality + latency</text>
+
+  <rect x="220" y="220" width="160" height="90" rx="6" class="hi"/>
+  <text x="232" y="246" class="t">Train RAG-SFT LoRA</text><text x="232" y="266" class="s">Qwen3-0.6B, 2 epochs,</text><text x="232" y="282" class="s">question + top-3 chunks</text><text x="232" y="298" class="s">→ answer</text>
+
+  <rect x="410" y="220" width="180" height="90" rx="6" class="hi"/>
+  <text x="422" y="246" class="t">Saved model</text><text x="422" y="266" class="s">models/qwen3-0.6b-ragsft-lora</text><text x="422" y="282" class="s">49 MB adapter + gate</text><text x="422" y="298" class="s">threshold (results/)</text>
+
+  <rect x="640" y="220" width="160" height="90" rx="6" class="box"/>
+  <text x="652" y="246" class="t">FastAPI backend</text><text x="652" y="266" class="s">loads base + adapter once</text><text x="652" y="282" class="s">POST /api/ask</text><text x="652" y="298" class="s">GET /api/health</text>
+
+  <rect x="820" y="220" width="150" height="90" rx="6" class="box"/>
+  <text x="832" y="246" class="t">React frontend</text><text x="832" y="266" class="s">Vite, port 5173</text><text x="832" y="282" class="s">answer, sources,</text><text x="832" y="298" class="s">timing trace</text>
+
+  <rect x="820" y="90" width="150" height="80" rx="6" class="box"/>
+  <text x="832" y="116" class="t">User</text><text x="832" y="136" class="s">asks in a browser</text><text x="832" y="152" class="s">at localhost:5173</text>
+
+  <path d="M190,130 H216" class="ln"/><path d="M380,130 H406" class="ln"/>
+  <path d="M500,170 C500,195 300,190 300,216" class="ln"/>
+  <text x="430" y="206" class="s">winner selected by a fixed rule</text>
+  <path d="M380,265 H406" class="ln"/><path d="M590,265 H636" class="ln"/>
+  <path d="M800,258 H816" class="ln"/><path d="M816,276 H804" class="ln"/>
+  <path d="M895,170 V216" class="ln"/><path d="M880,216 V174" class="ln"/>
+</svg>

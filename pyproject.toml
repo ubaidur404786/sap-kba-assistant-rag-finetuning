@@ -1,0 +1,46 @@
+[project]
+name = "kbqa"
+version = "0.1.0"
+description = "Domain-specific QA over an SAP HANA knowledge-base article: data extraction, RAG and PEFT fine-tuning experiments."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    # Deep learning core. torch comes from the CUDA 13.0 index below (driver 592.82 supports CUDA 13.1).
+    "torch==2.14.1",
+    "transformers>=5.20,<6",
+    "peft>=0.21,<0.22",
+    "trl>=1.16,<2",
+    "accelerate>=1.15,<2",
+    "bitsandbytes>=0.50,<0.51",   # 4-bit QLoRA; native Windows wheels exist since 0.43
+    "datasets>=5.1,<6",
+    # Data preparation
+    "beautifulsoup4>=4.12",
+    "lxml>=5.2",
+    # Retrieval + evaluation
+    "sentence-transformers>=6.1,<7",
+    "rank-bm25>=0.2.2",
+    "rouge-score>=0.1.2",
+    "pandas>=2.2",
+    # Notebooks
+    "ipykernel>=6.28",
+    "psutil>=5.9",
+    "nbconvert>=7.16",
+    "matplotlib>=3.9",
+    "fastapi>=0.115",
+    "uvicorn>=0.32",
+    "tabulate>=0.9",
+]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu130" }
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

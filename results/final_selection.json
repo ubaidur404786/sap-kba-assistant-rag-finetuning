@@ -1,0 +1,232 @@
+{
+ "rule": "(docs/PLANNING.md, fixed before results):\n  eligible  = correct refusals on unanswerable val questions >= 0.80\n              AND key-fact recall on val >= retrieval-only baseline on val\n              AND median end-to-end latency <= 10 s (benchmark.py)  AND peak VRAM <= 6 GB\n  rank      = val_score (0.5 key-fact recall + 0.25 ROUGE-L + 0.25 correct refusals), then latency\nIf nothing is eligible, the system that fails the fewest criteria is reported, with the failures listed.",
+ "retrieval_only_val_key_fact_recall": 0.6993,
+ "eligible": [
+  "retrieval-only+gate",
+  "ft/smollm2-360m-instruct/ragsft-lora/rag+gate",
+  "ft/qwen3-0.6b/ragsft-lora/rag+gate"
+ ],
+ "selected": {
+  "system": "ft/qwen3-0.6b/ragsft-lora/rag+gate",
+  "val_score": 0.8423,
+  "e2e_median_s": 6.637,
+  "peak_vram_gb": 1.545,
+  "fails": []
+ },
+ "candidates": [
+  {
+   "system": "ft/qwen3-0.6b/ragsft-lora/rag+gate",
+   "val_score": 0.8423,
+   "e2e_median_s": 6.637,
+   "peak_vram_gb": 1.545,
+   "fails": []
+  },
+  {
+   "system": "ft/smollm2-360m-instruct/ragsft-lora/rag+gate",
+   "val_score": 0.7993,
+   "e2e_median_s": 9.755,
+   "peak_vram_gb": 0.756,
+   "fails": []
+  },
+  {
+   "system": "retrieval-only+gate",
+   "val_score": 0.7645,
+   "e2e_median_s": 0.0058,
+   "peak_vram_gb": 0.0,
+   "fails": []
+  },
+  {
+   "system": "ft/qwen3-0.6b/ragsft-lora/rag",
+   "val_score": 0.6423,
+   "e2e_median_s": 3.066,
+   "peak_vram_gb": 1.545,
+   "fails": [
+    "correct refusals 0.1667 < 0.8"
+   ]
+  },
+  {
+   "system": "ft/smollm2-360m-instruct/ragsft-lora/rag",
+   "val_score": 0.5707,
+   "e2e_median_s": 5.086,
+   "peak_vram_gb": 0.758,
+   "fails": [
+    "correct refusals 0.0556 < 0.8"
+   ]
+  },
+  {
+   "system": "base/qwen2.5-0.5b/rag+gate",
+   "val_score": 0.3896,
+   "e2e_median_s": null,
+   "peak_vram_gb": 1.867,
+   "fails": [
+    "key-fact recall 0.168 < retrieval-only 0.6993",
+    "latency not measured"
+   ]
+  },
+  {
+   "system": "base/smollm2-135m/rag+gate",
+   "val_score": 0.3517,
+   "e2e_median_s": null,
+   "peak_vram_gb": 1.063,
+   "fails": [
+    "key-fact recall 0.1163 < retrieval-only 0.6993",
+    "latency not measured"
+   ]
+  },
+  {
+   "system": "base/tinyllama-1.1b/rag+gate",
+   "val_score": 0.3336,
+   "e2e_median_s": null,
+   "peak_vram_gb": 3.7,
+   "fails": [
+    "key-fact recall 0.0911 < retrieval-only 0.6993",
+    "latency not measured"
+   ]
+  },
+  {
+   "system": "base/qwen3-0.6b/rag",
+   "val_score": 0.3284,
+   "e2e_median_s": 5.97,
+   "peak_vram_gb": 1.545,
+   "fails": [
+    "key-fact recall 0.0917 < retrieval-only 0.6993"
+   ]
+  },
+  {
+   "system": "base/qwen3-0.6b/rag+gate",
+   "val_score": 0.3284,
+   "e2e_median_s": null,
+   "peak_vram_gb": 3.805,
+   "fails": [
+    "key-fact recall 0.0917 < retrieval-only 0.6993",
+    "latency not measured"
+   ]
+  },
+  {
+   "system": "base/smollm2-360m/rag+gate",
+   "val_score": 0.3019,
+   "e2e_median_s": null,
+   "peak_vram_gb": 2.047,
+   "fails": [
+    "key-fact recall 0.0451 < retrieval-only 0.6993",
+    "latency not measured"
+   ]
+  },
+  {
+   "system": "base/qwen2.5-0.5b/rag",
+   "val_score": 0.223,
+   "e2e_median_s": 4.082,
+   "peak_vram_gb": 0.952,
+   "fails": [
+    "correct refusals 0.3333 < 0.8",
+    "key-fact recall 0.168 < retrieval-only 0.6993"
+   ]
+  },
+  {
+   "system": "base/smollm2-360m/rag",
+   "val_score": 0.2048,
+   "e2e_median_s": 8.683,
+   "peak_vram_gb": 0.716,
+   "fails": [
+    "correct refusals 0.6111 < 0.8",
+    "key-fact recall 0.0451 < retrieval-only 0.6993"
+   ]
+  },
+  {
+   "system": "base/tinyllama-1.1b/rag",
+   "val_score": 0.1948,
+   "e2e_median_s": 9.146,
+   "peak_vram_gb": 2.099,
+   "fails": [
+    "correct refusals 0.4444 < 0.8",
+    "key-fact recall 0.0911 < retrieval-only 0.6993"
+   ]
+  },
+  {
+   "system": "ft/qwen3-0.6b/dapt-lora/closed",
+   "val_score": 0.1776,
+   "e2e_median_s": null,
+   "peak_vram_gb": 2.104,
+   "fails": [
+    "correct refusals 0.6111 < 0.8",
+    "key-fact recall 0.0 < retrieval-only 0.6993",
+    "latency not measured"
+   ]
+  },
+  {
+   "system": "base/smollm2-135m/rag",
+   "val_score": 0.1018,
+   "e2e_median_s": 50.245,
+   "peak_vram_gb": 0.278,
+   "fails": [
+    "correct refusals 0.0 < 0.8",
+    "key-fact recall 0.1163 < retrieval-only 0.6993",
+    "median latency 50.245 s > 10.0 s"
+   ]
+  },
+  {
+   "system": "ft/qwen3-0.6b/dapt-sft-lora/closed",
+   "val_score": 0.1009,
+   "e2e_median_s": null,
+   "peak_vram_gb": 2.104,
+   "fails": [
+    "correct refusals 0.1667 < 0.8",
+    "key-fact recall 0.0234 < retrieval-only 0.6993",
+    "latency not measured"
+   ]
+  },
+  {
+   "system": "ft/qwen3-0.6b/sft-qlora/closed",
+   "val_score": 0.0807,
+   "e2e_median_s": 5.042,
+   "peak_vram_gb": 0.937,
+   "fails": [
+    "correct refusals 0.1111 < 0.8",
+    "key-fact recall 0.0154 < retrieval-only 0.6993"
+   ]
+  },
+  {
+   "system": "ft/qwen3-0.6b/sft-lora/closed",
+   "val_score": 0.0732,
+   "e2e_median_s": 1.595,
+   "peak_vram_gb": 1.545,
+   "fails": [
+    "correct refusals 0.0556 < 0.8",
+    "key-fact recall 0.024 < retrieval-only 0.6993"
+   ]
+  },
+  {
+   "system": "ft/qwen3-0.6b/sft-full/closed",
+   "val_score": 0.0561,
+   "e2e_median_s": null,
+   "peak_vram_gb": 2.065,
+   "fails": [
+    "correct refusals 0.0 < 0.8",
+    "key-fact recall 0.0176 < retrieval-only 0.6993",
+    "latency not measured"
+   ]
+  },
+  {
+   "system": "ft/qwen3-0.6b/sft-prompt/closed",
+   "val_score": 0.0414,
+   "e2e_median_s": null,
+   "peak_vram_gb": 2.141,
+   "fails": [
+    "correct refusals 0.0 < 0.8",
+    "key-fact recall 0.0055 < retrieval-only 0.6993",
+    "latency not measured"
+   ]
+  },
+  {
+   "system": "ft/qwen3-0.6b/sft-ia3/closed",
+   "val_score": 0.0368,
+   "e2e_median_s": null,
+   "peak_vram_gb": 2.067,
+   "fails": [
+    "correct refusals 0.0 < 0.8",
+    "key-fact recall 0.0136 < retrieval-only 0.6993",
+    "latency not measured"
+   ]
+  }
+ ]
+}

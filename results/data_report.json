@@ -1,0 +1,70 @@
+{
+  "seed": 42,
+  "fractions": {
+    "train": 0.8,
+    "val": 0.1,
+    "test": 0.1
+  },
+  "unanswerable_fractions": {
+    "train": 0.5,
+    "val": 0.15,
+    "test": 0.35
+  },
+  "n_units": 639,
+  "units_per_split": {
+    "train": 503,
+    "val": 64,
+    "test": 72
+  },
+  "questions": {
+    "test_seen": {
+      "total": 407,
+      "table_row": 366,
+      "text_chunk": 31,
+      "unanswerable": 10,
+      "gold": 0
+    },
+    "train": {
+      "total": 1721,
+      "table_row": 1598,
+      "text_chunk": 92,
+      "unanswerable": 31,
+      "gold": 0
+    },
+    "test_unseen": {
+      "total": 298,
+      "table_row": 253,
+      "text_chunk": 13,
+      "unanswerable": 32,
+      "gold": 0
+    },
+    "val": {
+      "total": 348,
+      "table_row": 322,
+      "text_chunk": 8,
+      "unanswerable": 18,
+      "gold": 0
+    },
+    "test_gold": {
+      "total": 35,
+      "table_row": 0,
+      "text_chunk": 0,
+      "unanswerable": 0,
+      "gold": 35
+    }
+  },
+  "file_sha256_16": {
+    "test_seen": "b34b24779b93b270",
+    "train": "805df7fc88e187ce",
+    "test_unseen": "ac82789831546796",
+    "val": "3dd3decbaa586770",
+    "test_gold": "0d4965dc1d466262"
+  },
+  "test_unseen_near_duplicate_answers(>=0.8)": 10,
+  "dapt_chunks": {
+    "train": 567,
+    "val": 68
+  },
+  "generated_questions_used": 2020,
+  "generated_questions_dropped_as_duplicates": 11
+}

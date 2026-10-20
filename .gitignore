@@ -1,0 +1,65 @@
+# ---------------------------------------------------------------
+# CONFIDENTIAL SOURCE DATA - never commit (see CLAUDE.md, rule 1)
+# ---------------------------------------------------------------
+raw data/
+doc/
+data/
+*.docx
+
+# Model weights, checkpoints, adapters (large + derived from confidential data)
+outputs/
+fine_tune_sap_kbas/work/
+fine_tune_sap_kbas/_smoke*.ipynb
+*.safetensors
+*.bin
+*.gguf
+*.pt
+
+# Experiment logs that may contain generated answers quoting the KBA
+results/raw/
+# The beginner story notebook prints real KBA answers in its last cells (clear outputs before sharing)
+learn/*.ipynb
+
+# Python / environments
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Secrets
+.env
+*.env
+
+# Frontend
+node_modules/
+dist/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Local run logs
+logs/
+
+# ---------------------------------------------------------------
+# PRIVATE learning material (kept locally, not in the public repo)
+# Public = README, docs/DETAILS.md, docs/diagrams, docs/figures, docs/screenshots,
+#          src/, backend/, frontend/, results/ (numbers only), pyproject.toml, uv.lock
+# ---------------------------------------------------------------
+models/
+notebooks/
+learn/
+fine_tune_sap_kbas/
+CLAUDE.md
+.claude/
+docs/*.md
+!docs/DETAILS.md
+docs/diagrams/architecture*.svg
+docs/diagrams/app_workflow.svg
+docs/diagrams/data_pipeline.svg
+docs/diagrams/evaluation_benchmarking.svg
+docs/diagrams/peft_methods.svg
+docs/diagrams/training_approaches.svg
+*.egg-info/
