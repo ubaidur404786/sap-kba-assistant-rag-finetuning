@@ -1,5 +1,7 @@
 # SAP HANA Knowledge-Base Assistant: a Fine-Tuned 0.6B Model That Answers Only From the Docs
 
+> **Want to see the app first?** Screenshots of the interface (input → output for 4 cases) are in [The app](#the-app), below the results.
+
 ## The problem
 
 Support engineers lose time searching long SAP Knowledge Base Articles (KBAs) for one parameter, one SQL view,
@@ -33,24 +35,50 @@ Example of the format (illustrative, not taken from the KBA):
 > **Q:** What is the capital of France?<br>
 > **A:** The knowledge base does not contain information to answer this question.
 
-## The app
+## How the systems were compared and selected
 
-The app runs **locally** (FastAPI backend + React frontend): the model and the article stay on the machine.
-The source document is not in this repository, so you cannot test with the real data. The screenshots
-below are from the real local app.
+Comparing 28 systems is only useful if the comparison is fair and the winner is not cherry-picked. Three
+rules made sure of that:
 
-![Dashboard](docs/screenshots/dashboard.jpg)
+1. **Same conditions for everyone.** Same test questions, same retriever, same prompts, seed 42, greedy
+   decoding. Every fine-tuning run used the same data, effective batch size (32) and number of epochs (2);
+   only the learning rate differs, as each method needs.
+2. **Validation decides, test reports.** The retriever (BM25 recall@3 0.86 vs dense 0.57), the model to
+   fine-tune, the gate threshold and the final system were all chosen on the validation set. The test set
+   was used only for the numbers below. The test questions are *unseen*: the facts behind them were never in
+   training, so a high score means the system really reads the article. It is not just memorising.
+3. **The selection rule was written before the results.** A system was eligible only if it passed all four checks:
 
-<table>
-  <tr>
-    <td width="50%"><b>1 · In-domain question</b><br>Input: <i>How can I capture bind values of prepared SQL statements?</i><br>Output: the exact parameter and its settings, with 3 sources<br><img src="docs/screenshots/case1_in_domain.jpg"></td>
-    <td width="50%"><b>2 · In-domain question</b><br>Input: <i>How can I identify the client coding responsible for a database request?</i><br>Output: the SQL views that hold the information<br><img src="docs/screenshots/case2_in_domain.jpg"></td>
-  </tr>
-  <tr>
-    <td><b>3 · Near the domain, not in the article</b><br>Input: <i>How do I renew an expired SAP HANA SSL certificate?</i><br>Output: refused in 0.1 s, the model is not called<br><img src="docs/screenshots/case3_near_domain_refused.jpg"></td>
-    <td><b>4 · Completely off-topic</b><br>Input: <i>What is the capital of France?</i><br>Output: refused, no guessing<br><img src="docs/screenshots/case4_off_topic_refused.jpg"></td>
-  </tr>
-</table>
+   | Check (validation set) | Why it matters for a support tool |
+   |---|---|
+   | Refuses ≥ 80 % of off-topic questions | a wrong confident answer is worse than "not covered" |
+   | Key-fact recall ≥ retrieval-only baseline (0.70) | otherwise just showing the excerpt is better |
+   | Median answer time ≤ 10 s | usable in a chat |
+   | Peak GPU memory ≤ 6 GB | runs on the laptop |
+
+   Eligible systems were then ranked by **0.5 × key-fact recall + 0.25 × ROUGE-L + 0.25 × correct refusals**.
+
+**Outcome:** only 3 of 28 systems were eligible. Every closed-book and every base-model system failed.
+
+| Eligible system | Validation score | Median latency | Peak VRAM |
+|---|---|---|---|
+| **Qwen3-0.6B + RAG-SFT + gate (selected)** | **0.842** | 6.6 s | 1.5 GB |
+| SmolLM2-360M + RAG-SFT + gate | 0.799 | 9.8 s | 0.8 GB |
+| Retrieval only + gate | 0.765 | ≈ 0.01 s | 0 GB |
+
+The full rule and every candidate are in [results/final_selection.json](results/final_selection.json).
+
+### Why these results matter
+
+- **Fine-tuning alone does not teach a small model new facts.** Five techniques (LoRA, QLoRA, IA3, prompt
+  tuning, full fine-tuning) plus domain pretraining all stayed at or below 0.03 key-fact recall without retrieval.
+  Full fine-tuning cost 5× the time and a 1.1 GB checkpoint for no gain.
+- **RAG alone is not enough either.** Given the right excerpts, base models still got only 0.09–0.14, which is worse than
+  just showing the excerpt (0.71).
+- **The combination works:** fine-tuning on *question + retrieved excerpts* lifted the same 0.6 B model to 0.80, above
+  the excerpt itself. The adapter is only 49 MB, trained in about an hour on a laptop.
+- **Refusing is a separate problem.** The fine-tuned model alone refused only 53 % of off-topic questions. A cheap
+  similarity gate raised that to 94 % without retraining.
 
 ## Results of the selected system
 
@@ -105,6 +133,25 @@ Train once offline, save the adapter, load it in the backend, and the user asks 
 The winner was picked by a selection rule written **before** the results (in short: refuse ≥ 80 % of off-topic
 questions, beat retrieval-only, answer in ≤ 10 s on 6 GB; then rank by score).
 **All 28 systems with every metric:** [results/comparison.md](results/comparison.md).
+
+## The app
+
+The app runs **locally** (FastAPI backend + React frontend): the model and the article stay on the machine.
+The source document is not in this repository, so you cannot test with the real data. The screenshots
+below are from the real local app.
+
+![Dashboard](docs/screenshots/dashboard.jpg)
+
+<table>
+  <tr>
+    <td width="50%"><b>1 · In-domain question</b><br>Input: <i>How can I capture bind values of prepared SQL statements?</i><br>Output: the exact parameter and its settings, with 3 sources<br><img src="docs/screenshots/case1_in_domain.jpg"></td>
+    <td width="50%"><b>2 · In-domain question</b><br>Input: <i>How can I identify the client coding responsible for a database request?</i><br>Output: the SQL views that hold the information<br><img src="docs/screenshots/case2_in_domain.jpg"></td>
+  </tr>
+  <tr>
+    <td><b>3 · Near the domain, not in the article</b><br>Input: <i>How do I renew an expired SAP HANA SSL certificate?</i><br>Output: refused in 0.1 s, the model is not called<br><img src="docs/screenshots/case3_near_domain_refused.jpg"></td>
+    <td><b>4 · Completely off-topic</b><br>Input: <i>What is the capital of France?</i><br>Output: refused, no guessing<br><img src="docs/screenshots/case4_off_topic_refused.jpg"></td>
+  </tr>
+</table>
 
 ## How to run
 
